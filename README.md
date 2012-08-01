@@ -16,6 +16,7 @@ test all methods and check the response values this script provides.
 Usage
 -----
 ```php
+<?php
 // include the Mite class
 require_once 'mite/Mite.php';
 // instantiate the object with your credentials
