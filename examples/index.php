@@ -7,7 +7,7 @@
 <head>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
-	<title>miteAPI Examples</title>
+	<title>Mitey (mite api) Examples</title>
 	<link rel="stylesheet" href="stylesheets/foundation.css">
 	<link rel="stylesheet" href="stylesheets/app.css">
 	<script src="javascripts/modernizr.foundation.js"></script>
@@ -18,8 +18,8 @@
 <body>
 	<div class="row">
 		<div class="twelve columns">
-			<h2>miteAPI Examples</h2>
-			<p>Here you can test the access and responses of the mite api.</p>
+			<h2>Mitey (mite api) Examples</h2>
+			<p>Here you can test the access and responses of Mitey, the php wrapper for the mite api.</p>
 			<hr />
 		</div>
 	</div>
