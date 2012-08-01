@@ -128,7 +128,7 @@
 			<h4>Resources</h4>
 			<ul class="disc">
 				<li><a href="https://github.com/hubeRsen/Mitey">Mitey Github Repository</a><br />This projects Github repository. Feel free to contribute.</li>
-				<li><a href="http://codeschmiede.de">CODESCHMIEDE</a><br />The creator of Mitey.</li>
+				<li><a href="http://twitter.com/hubeRsen">@hubeRsen</a><br />The creator of Mitey.</li>
 				<li><a href="http://facturandum.com">facturandum</a><br />The app for which Mitey was initially created.</li>
 			</ul>
 		</div>
