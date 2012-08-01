@@ -8,7 +8,7 @@ if (!isset($endpoint) || empty($endpoint) || !isset($key) || empty($key))
 	die('Please provide your api credentials!');
 }
 
-require_once '../mite/Mite.php';
+require_once '../Mite/Mite.php';
 $mite = new Mite\Mite($endpoint, $key);
 
 function outputKeyVal($o)
