@@ -11,7 +11,8 @@ Mitey requires the following
 Quick start
 -----------
 Clone this repo into any webserver and call `examples/index.php`, there you can put in your mite API credentials and
-test some methods and check the response values this script provides.
+test some methods and check the response values this script provides. If you are, for whatever reason, not able to
+clone this, you can go to [http://dev.codeschmiede.de/Mitey/examples/](http://dev.codeschmiede.de/Mitey/examples/) for the example page.
 
 Usage
 -----
