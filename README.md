@@ -10,8 +10,8 @@ Mitey requires the following
 
 Quick start
 -----------
-Call examples/index.php on your local webserver, there you can put in your mite API credentials and
-test all methods and check the response values this script provides.
+Clone this repo into any webserver and call `examples/index.php`, there you can put in your mite API credentials and
+test some methods and check the response values this script provides.
 
 Usage
 -----
@@ -23,9 +23,10 @@ require_once 'mite/Mite.php';
 $mite = new Mite\Mite('YOUR-MITE-API-ENDPOINT', 'YOUR-MITE-API-KEY');
 ```
 
-Now you have access to all methods the mite API has, for example get an array of objects of all your customers
+Now you have access to all methods the mite API has, for example get objects of all your customers
 ```php
-$customers = $mite->getCustomers();
+<?php
+$customers = $mite->getCustomers(); // will return a iterator object
 for ($customers->rewind(); $customers->valid(); $customers->next())
 {
 	$customer = $customers->current();
@@ -35,6 +36,7 @@ for ($customers->rewind(); $customers->valid(); $customers->next())
 
 The following methods will return php iterator objects
 ```php
+<?php
 $mite->getArchivedProjects();
 $mite->getCustomers();
 $mite->getProjects();
@@ -42,3 +44,9 @@ $mite->getTimes();
 $mite->getUsers();
 ```
 
+Contact
+-------
+In case you wanna get in touch, it's easy!
+* Twitter: [@hubeRsen](http://twitter.com/hubeRsen)
+* Website: [http://codeschmiede.de](http://codeschmiede.de)
+* E-mail: [stefan@codeschmiede.de](stefan@codeschmiede.de)

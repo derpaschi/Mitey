@@ -1,0 +1,15 @@
+######################
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Thumbs.db
+
+# IDE generated meta files #
+############################
+.project
+.buildpath
+.settings
+
+# Testing
+testing.php
