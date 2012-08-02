@@ -76,6 +76,8 @@ $newtime = $mite->addTime(
 );
 ```
 
+Look into the code `Mite/Mite.php` for a complete list of methods this library provides.
+
 Contact
 -------
 In case you wanna get in touch, it's easy!
