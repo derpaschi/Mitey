@@ -95,7 +95,10 @@ class Curly
 
 		if (count($this->options))
 		{
-			curl_setopt_array($this->handle, $this->options);
+			foreach ($this->options as $k => $v)
+			{
+				curl_setopt($this->handle, $k, $v);
+			}
 		}
 
 		return $this;
@@ -103,7 +106,7 @@ class Curly
 
 	public function setHeader($header, $content = false)
 	{
-		$this->headers[] = $content !== false ? $header . ':' . $content : $header;
+		$this->headers[] = $content !== false ? $header . ': ' . $content : $header;
 
 		return $this;
 	}
