@@ -27,22 +27,53 @@ $mite = new Mite\Mite('YOUR-MITE-API-ENDPOINT', 'YOUR-MITE-API-KEY');
 Now you have access to all methods the mite API has, for example get objects of all your customers
 ```php
 <?php
-$customers = $mite->getCustomers(); // will return a iterator object
+$customers = $mite->getCustomers();
 for ($customers->rewind(); $customers->valid(); $customers->next())
 {
 	$customer = $customers->current();
 	echo $customer->name . "<br />";
 }
+
+// all this methods will return iterator objects
+$iterator = $mite->getArchivedProjects();
+$iterator = $mite->getCustomers();
+$iterator = $mite->getProjects();
+$iterator = $mite->getTimes();
+$iterator = $mite->getUsers();
 ```
 
-The following methods will return php iterator objects
+Get customer details of a specified account
 ```php
 <?php
-$mite->getArchivedProjects();
-$mite->getCustomers();
-$mite->getProjects();
-$mite->getTimes();
-$mite->getUsers();
+$customer = $mite->getCustomer(1234); // 1234 is the needed customer id
+// $customer contains a object of type MiteCustomer
+```
+
+Add new stuff to your mite account (customers, projects, times)
+```php
+<?php
+// new customer
+$newCustomer = $mite->addCustomer(array(
+	'name' => 'My new customer name',
+	'note' => 'Generated via Mitey, totally easy. Whoop whoop.'
+));
+
+// new project
+$newProject = $mite->addProject(array(
+	'name' => 'My brand new project',
+	'note' => 'Generated via Mitey, totally easy. Whoop whoop.',
+	'customer_id' => $newCustomer->id
+));
+
+// new time entry
+$newtime = $mite->addTime(
+	date('Y-m-d'), 			// date of time entry
+	666, 					// time in seconds
+	'My workdescription, created via Mitey, whoop whoop.', 
+	$mite->getMyself()->id,	// user id
+	$newProject->id,		// optional: project id
+	false					// optional: service id
+);
 ```
 
 Contact
