@@ -104,7 +104,7 @@ class Mite
 		{
 			$response = $this->Resty->get($endpoint, $params);
 
-			if (!is_array($response) || empty($response))
+			if (!is_array($response))
 			{
 				throw new MiteException(__FUNCTION__.'(): No response from REST interface.');
 			}
