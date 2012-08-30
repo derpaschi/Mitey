@@ -48,6 +48,7 @@
 						<dd><a href="#projects">Projects</a></dd>
 						<dd><a href="#times">Times</a></dd>
 						<dd><a href="#users">Users</a></dd>
+						<dd><a href="#services">Services</a></dd>
 					</dl>
 				</div>
 			</div>
@@ -108,6 +109,21 @@
 								</div>
 							</div>
 							<p><a href="#" class="success button users">Get Users</a></p>
+						</li>
+						<li id="servicesTab">
+							<p>Optional Parameters</p>
+							<div class="row">
+								<div class="four columns">
+									<input type="text" name="s_filter" placeholder="Name" />
+								</div>
+								<div class="four columns">
+									<input type="text" name="s_limit" placeholder="Limit" />
+								</div>
+								<div class="four columns">
+									<input type="text" name="s_offset" placeholder="Offset" />
+								</div>
+							</div>
+							<p><a href="#" class="success button services">Get Services</a></p>
 						</li>
 					</ul>
 				</div>

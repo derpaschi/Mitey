@@ -56,6 +56,17 @@
     		}).fadeIn();
     		return false;
     	});
+    	$('.services').click(function(){
+    		$('.doit-content').hide().load('doit.php', {
+    			method: 'services', 
+    			api_endpoint: $('input[name=api_endpoint]').val(), 
+    			api_key: $('input[name=api_key]').val(),
+    			name: $('input[name=s_filter]').val(),
+    			limit: $('input[name=s_limit]').val(),
+    			offset: $('input[name=s_offset]').val()
+    		}).fadeIn();
+    		return false;
+    	});
     });
   });
 })(jQuery);

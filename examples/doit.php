@@ -41,14 +41,16 @@ try
 		case 'customers':
 		case 'projects':
 		case 'users':
+		case 'services':
 			$name = $_POST['name'] ? $_POST['name'] : '';
-			$email = $_POST['email'] ? $_POST['email'] : false;
+			$email = (isset($_POST['email']) && $_POST['email']) ? $_POST['email'] : false;
 			$limit = $_POST['limit'] ? $_POST['limit'] : false;
 			$offset = $_POST['offset'] ? $_POST['offset'] : false;
 
 			if ($_POST['method'] == 'customers') $e = $mite->getCustomers($name, $limit, $offset);
 			elseif ($_POST['method'] == 'projects')  $e = $mite->getProjects($name, $limit, $offset);
 			elseif ($_POST['method'] == 'users')  $e = $mite->getUsers($name, $email, $limit, $offset);
+			elseif ($_POST['method'] == 'services')  $e = $mite->getServices($name, $limit, $offset);
 
 			for ($e->rewind(); $e->valid(); $e->next())
 			{

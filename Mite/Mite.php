@@ -14,6 +14,8 @@ use Mite\MiteUserIterator;
 use Mite\MiteUser;
 use Mite\MiteTimeIterator;
 use Mite\MiteTime;
+use Mite\MiteServiceIterator;
+use Mite\MiteService;
 
 /**
  * mite API Wrapper
@@ -148,6 +150,17 @@ class Mite
 	}
 
 	/**
+	 * get specified service
+	 *
+	 * @param int $id
+	 * @return MiteService
+	 */
+	public function getService($id)
+	{
+		return $this->getEntity('services/'.$id.'.json', 'service', 'MiteService');
+	}
+
+	/**
 	 * Get specified entity object
 	 *
 	 * @param string $endpoint
@@ -198,6 +211,17 @@ class Mite
 	}
 
 	/**
+	 * Update service properties
+	 *
+	 * @param int $id		the service id
+	 * @param Array $data	the properties to be updated
+	 */
+	public function updateService($id, Array $data)
+	{
+		return $this->updateEntity('services/'.$id.'json', array('service' => $data));
+	}
+
+	/**
 	 * Update specified mite entity
 	 *
 	 * @param string $endpoint
@@ -243,6 +267,18 @@ class Mite
 	public function addProject(Array $data)
 	{
 		return $this->addEntity('projects.json', array('project' => $data), 'project');
+	}
+
+	/**
+	 * Add a new service
+	 *
+	 * @param Array $data 	Associative array with service properties
+	 * 						http://mite.yo.lk/en/api/services.html
+	 * @return MiteService
+	 */
+	public function addService(Array $data)
+	{
+		return $this->addEntity('services.json', array('service' => $data), 'service');
 	}
 
 	/**
@@ -300,6 +336,17 @@ class Mite
 	}
 
 	/**
+	 * Delete specified service
+	 *
+	 * @param int $id
+	 * @return boolean
+	 */
+	public function deleteService($id)
+	{
+		return $this->deleteEntity('services/'.$id.'.json');
+	}
+
+	/**
 	 * Deletes a entity
 	 *
 	 * @param string $endpoint
@@ -338,6 +385,29 @@ class Mite
 			'MiteProjectIterator',
 			'MiteProject',
 			'project',
+			array('name' => $name),
+			$limit,
+			$offset
+		);
+	}
+
+	/**
+	 * Get all services by defined filters
+	 *
+	 * http://mite.yo.lk/en/api/services.html
+	 *
+	 * @param string $name
+	 * @param int $limit
+	 * @param int $offset
+	 * @return MiteServiceIterator
+	 */
+	public function getServices($name = '', $limit = false, $offset = false)
+	{
+		return $this->getEntities(
+			'services.json',
+			'MiteServiceIterator',
+			'MiteService',
+			'service',
 			array('name' => $name),
 			$limit,
 			$offset
