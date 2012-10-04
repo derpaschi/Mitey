@@ -252,7 +252,7 @@ class Curly
 			CURLOPT_TIMEOUT => 30,
 			CURLOPT_RETURNTRANSFER => true,
 			CURLOPT_FAILONERROR => true,
-			CURLOPT_FOLLOWLOCATION => true
+			// CURLOPT_FOLLOWLOCATION => true
 		);
 
 		foreach ($defaults as $code => $val)
