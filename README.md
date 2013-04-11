@@ -39,6 +39,7 @@ $iterator = $mite->getArchivedProjects();
 $iterator = $mite->getCustomers();
 $iterator = $mite->getProjects();
 $iterator = $mite->getTimes();
+$iterator = $mite->getGroupedTimes(array('week, project'));
 $iterator = $mite->getUsers();
 ```
 
@@ -69,7 +70,7 @@ $newProject = $mite->addProject(array(
 $newtime = $mite->addTime(
 	date('Y-m-d'), 			// date of time entry
 	666, 					// time in seconds
-	'My workdescription, created via Mitey, whoop whoop.', 
+	'My workdescription, created via Mitey, whoop whoop.',
 	$mite->getMyself()->id,	// user id
 	$newProject->id,		// optional: project id
 	false					// optional: service id
