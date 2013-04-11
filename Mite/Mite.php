@@ -500,6 +500,56 @@ class Mite
 	}
 
 	/**
+	 * Get time entries by defined filters
+	 *
+	 * @param Array $customers	array of customer id's
+	 * @param Array $projects	array of project id's
+	 * @param Array $services	array of service id's
+	 * @param Array $users		array of user id's
+	 * @param boolean $billable	true: return only billable entries, false: return only not billable entries, null return all
+	 * @param string $note		will search in notes field of time entries
+	 * @param string $at		today, yesterday, this_week, last_week, this_month, last_month or date in format YYYY-MM-DD or false
+	 * @param string $from		date in format YYYY-MM-DD or false
+	 * @param string $to		date in format YYYY-MM-DD or false
+	 * @param boolean $locked	true: return only locked, false: return only unlocked, null: return all
+	 * @param int $limit		optional limit
+	 * @param int $offset		optional offset
+	 * @param Array $groups		array of group_by names (customer, project, service, user, day, week, month, year)
+	 *
+	 * @return MiteTimeIterator
+	 */
+	public function getGroupedTimes(Array $groups = array(), Array $customers = array(), Array $projects = array(), Array $services = array(),
+							 Array $users = array(), $billable = null, $note = false, $at = false, $from = false,
+							 $to = false, $locked = null, $limit = false, $offset = false)
+	{
+		$params = array();
+
+		// produce proper filter array
+		!empty($groups) && $params['group_by'] = implode(',', $groups);
+		!empty($customers) && $params['customer_id'] = implode(',', $customers);
+		!empty($projects) && $params['project_id'] = implode(',', $projects);
+		!empty($services) && $params['service_id'] = implode(',', $services);
+		!empty($users) && $params['user_id'] = implode(',', $users);
+		($billable !== null) && $params['billable'] = $billable;
+		$note && $params['note'] = $note;
+
+		preg_match('/^today|yesterday|this_week|this_month|last_month|\d{4}-\d{2}-\d{2}$/', $at) && $params['at'] = $at;
+		preg_match('/^\d{4}-\d{2}-\d{2}$/', $from) && $params['from'] = $from;
+		preg_match('/^\d{4}-\d{2}-\d{2}$/', $to) && $params['to'] = $to;
+		($locked !== null) && $params['locked'] = $locked;
+
+		return $this->getEntities(
+			'time_entries.json',
+			'MiteGroupedTimeIterator',
+			'MiteGroupedTime',
+			'time_entry_group',
+			$params,
+			$limit,
+			$offset
+		);
+	}
+
+	/**
 	 * Add a new time entry
 	 *
 	 * @param string $date
