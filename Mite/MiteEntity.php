@@ -12,7 +12,14 @@ class MiteEntity
 	{
 		foreach ($data as $key => $val)
 		{
-			$this->{str_replace('-', '_', $key)} = $val;
+			if ($key == "time_entries_params") {
+				$this->time_entries_params = array();
+				foreach ($val as $filter_key => $filter_value) {
+					$this->time_entries_params[$filter_key] = $filter_value;
+				}
+			} else {
+				$this->{str_replace('-', '_', $key)} = $val;
+			}
 		}
 	}
 }

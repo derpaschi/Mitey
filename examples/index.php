@@ -90,7 +90,10 @@
 							<p><a href="#" class="success button projects">Get Projects</a></p>
 						</li>
 						<li id="timesTab">
-							<p><a href="#" class="success button times">Get last 5 time entries</a></p>
+							<p>
+								<a href="#" class="success button times">Get last 5 time entries</a>
+								<a href="#" class="success button grouped_times">Get time by project</a>
+							</p>
 						</li>
 						<li id="usersTab">
 							<p>Optional Parameters</p>
