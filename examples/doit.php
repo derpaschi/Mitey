@@ -65,6 +65,14 @@ try
 				outputKeyVal($e->current());
 			}
 			break;
+		case 'grouped_times':
+
+			$e = $mite->getGroupedTimes(array('project'), array(), array(), array(), array(), null, false, false, false, false, null, 5, false);
+			for ($e->rewind(); $e->valid(); $e->next())
+			{
+				outputKeyVal($e->current());
+			}
+			break;
 
 	}
 }
