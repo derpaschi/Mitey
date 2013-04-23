@@ -1,5 +1,5 @@
 {
-    "name": "hubeRsen/Mitey",
+    "name": "hubersen/mitey",
     "description": "PHP Wrapper for the mite API",
     "require": {
         "php": ">=5.3.0"
