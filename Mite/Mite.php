@@ -586,7 +586,7 @@ class Mite
 	 * @param int $project
 	 * @param int $service
 	 */
-	public function updateTime($id, $date = false, $minutes = false, $note = false, $user = false, $project = false, $service = false)
+	public function updateTime($id, $date = false, $minutes = false, $note = false, $user = false, $project = false, $service = false, $locked = null)
 	{
 		$params = array();
 
@@ -596,6 +596,7 @@ class Mite
 		$user && $params['user_id'] = $user;
 		$project && $params['project_id'] = $project;
 		$service && $params['service_id'] = $service;
+		!is_null($locked) && $params['locked'] = $locked;
 
 		return $this->updateEntity('time_entries/'.$id.'.json', array('time-entry' => $params));
 	}
