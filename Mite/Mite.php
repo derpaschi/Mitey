@@ -483,7 +483,7 @@ class Mite
 		($billable !== null) && $params['billable'] = $billable;
 		$note && $params['note'] = $note;
 
-		preg_match('/^today|yesterday|this_week|this_month|last_month|\d{4}-\d{2}-\d{2}$/', $at) && $params['at'] = $at;
+		preg_match('/^today|yesterday|this_week|last_week|this_month|last_month|\d{4}-\d{2}-\d{2}$/', $at) && $params['at'] = $at;
 		preg_match('/^\d{4}-\d{2}-\d{2}$/', $from) && $params['from'] = $from;
 		preg_match('/^\d{4}-\d{2}-\d{2}$/', $to) && $params['to'] = $to;
 		($locked !== null) && $params['locked'] = $locked;
@@ -533,7 +533,7 @@ class Mite
 		($billable !== null) && $params['billable'] = $billable;
 		$note && $params['note'] = $note;
 
-		preg_match('/^today|yesterday|this_week|this_month|last_month|\d{4}-\d{2}-\d{2}$/', $at) && $params['at'] = $at;
+		preg_match('/^today|yesterday|this_week|last_week|this_month|last_month|\d{4}-\d{2}-\d{2}$/', $at) && $params['at'] = $at;
 		preg_match('/^\d{4}-\d{2}-\d{2}$/', $from) && $params['from'] = $from;
 		preg_match('/^\d{4}-\d{2}-\d{2}$/', $to) && $params['to'] = $to;
 		($locked !== null) && $params['locked'] = $locked;
