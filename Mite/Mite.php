@@ -640,6 +640,34 @@ class Mite
 	}
 
 	/**
+	 * Get archived users
+	 *
+	 * @param string $name
+	 * @param string $email
+	 * @param int $limit
+	 * @param int $offset
+	 */
+	public function getArchivedUsers($name = false, $email = false, $limit = false, $offset = false)
+	{
+		$params = array();
+
+		$name && $params['name'] = $name;
+		$email && $params['email'] = $email;
+		$limit && $params['limit'] = $limit;
+		$offset && $params['offset'] = $offset;
+
+		return $this->getEntities(
+				'users/archived.json',
+				'MiteUserIterator',
+				'MiteUser',
+				'user',
+				$params,
+				$limit,
+				$offset
+		);
+	}
+
+	/**
 	 * Get a specified mite User
 	 *
 	 * @param int $id
