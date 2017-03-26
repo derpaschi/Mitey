@@ -682,6 +682,4 @@ spl_autoload_register(function($class) {
 	$file = implode(DIRECTORY_SEPARATOR, explode('\\', ltrim($class, '\\')));
 	$path = dirname(__DIR__) . DIRECTORY_SEPARATOR . $file . '.php';
 	if(file_exists($path)) include $path;
-	else throw new \Exception ('Can\'t load needed library "' . $path . '"');
 });
-
