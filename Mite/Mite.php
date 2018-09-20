@@ -149,16 +149,27 @@ class Mite
 		return $this->getEntity('projects/'.$id.'.json', 'project', 'MiteProject');
 	}
 
-	/**
-	 * get specified service
-	 *
-	 * @param int $id
-	 * @return MiteService
-	 */
-	public function getService($id)
-	{
-		return $this->getEntity('services/'.$id.'.json', 'service', 'MiteService');
-	}
+    /**
+     * get specified time
+     *
+     * @param int $id
+     * @return MiteTime
+     */
+    public function getTime($id)
+    {
+        return $this->getEntity('time_entries/'.$id.'.json', 'time_entry', 'MiteTime');
+    }
+
+    /**
+     * get specified service
+     *
+     * @param int $id
+     * @return MiteService
+     */
+    public function getService($id)
+    {
+        return $this->getEntity('services/'.$id.'.json', 'service', 'MiteService');
+    }
 
 	/**
 	 * Get specified entity object
