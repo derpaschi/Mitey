@@ -293,6 +293,31 @@ class Mite
 	}
 
 	/**
+	 * Start tracking
+	 *
+	 * @param int $id
+	 */
+	public function startTracking($id)
+	{
+        //PATCH /tracker/:id.json
+		try
+		{
+            
+			$response = $this->Resty->patch('/tracker/'.$id.'.json');
+
+			if ($this->Resty->getInfo('http_code') == '200') {
+				return $response;
+			}
+		}
+		catch(\Exception $e)
+		{
+			throw new MiteException('Entity couldn\'t be added ('.$e->getMessage().').');
+		}
+
+		return false;
+	}
+	
+	/**
 	 * Add entity
 	 *
 	 * @param string $endpoint
