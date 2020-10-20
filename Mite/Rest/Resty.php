@@ -113,6 +113,11 @@ class Resty
 	{
 		return $this->doRequest('delete', $uri, $params);
 	}
+	
+	public function patch($uri, Array $params = array())
+	{
+		return $this->doRequest('patch', $uri, $params);
+	}
 
 	public function put($uri, $params = array())
 	{

@@ -205,6 +205,20 @@ class Curly
 
 		return $this->doRequest($options);
 	}
+	
+	public function patch(Array $params = array(), Array $options = array(), $url = false)
+	{
+		$url && $this->create($url);
+
+		if (count($params))
+		{
+			$this->setOption('POSTFIELDS', http_build_query($params, null, '&'));
+		}
+
+		$this->setMethod('patch');
+
+		return $this->doRequest($options);
+	}
 
 	/**
 	 * executes request and returns the response
