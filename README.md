@@ -83,5 +83,4 @@ Contact
 -------
 In case you wanna get in touch, it's easy!
 * Twitter: [@hubeRsen](http://twitter.com/hubeRsen)
-* Website: [http://codeschmiede.de](http://codeschmiede.de)
-* E-mail: [stefan@codeschmiede.de](mailto:stefan@codeschmiede.de)
+* Website: [https://paschi.dev](https://paschi.dev)
