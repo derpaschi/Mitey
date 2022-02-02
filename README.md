@@ -77,6 +77,20 @@ $newtime = $mite->addTime(
 );
 ```
 
+Start and stop the current running time:
+```php
+<?php
+// get the current running time tracker
+$tracker = $mite->getTracking();
+
+// stop the tracker, where $tracker->id is the id of the corresponding time entry
+$mite->stopTracking($tracker->id);
+
+// and start it again:
+$mite->startTracking($tracker->id);
+
+```
+
 Look into the code `Mite/Mite.php` for a complete list of methods this library provides.
 
 Contact
