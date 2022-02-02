@@ -296,17 +296,17 @@ class Mite
 	 * Start tracking
 	 *
 	 * @param int $id
+     * @return MiteTracker
 	 */
 	public function startTracking($id)
 	{
         //PATCH /tracker/:id.json
 		try
 		{
-            
-			$response = $this->Resty->patch('/tracker/'.$id.'.json');
+			$response = $this->Resty->patch('tracker/'.$id.'.json');
 
 			if ($this->Resty->getInfo('http_code') == '200') {
-				return $response;
+                return MiteTracker::fromResponse($response);
 			}
 		}
 		catch(\Exception $e)
@@ -316,6 +316,53 @@ class Mite
 
 		return false;
 	}
+
+    /**
+     * get tracking information as either MiteTracker entity if tracker is running, or null if no time entry is currently tracked
+     * @return MiteTracker|null
+     */
+    public function getTracking()
+    {
+        //GET /tracker.json
+        try
+        {
+            $response = $this->Resty->get('tracker.json');
+
+            if ($this->Resty->getInfo('http_code') == '200') {
+                return MiteTracker::fromResponse($response);
+            }
+        }
+        catch(\Exception $e)
+        {
+            throw new MiteException('Tracking couldn\'t not be fetched ('.$e->getMessage().').');
+        }
+
+        return null;
+    }
+
+    /**
+     * Delete tracking and returns the deleted MiteTracker entity
+     *
+     * @param int $id
+     * @return MiteTracker|null
+     */
+    public function stopTracking($id)
+    {
+        try
+        {
+            $response = $this->Resty->delete('tracker/'.$id.'.json');
+            if ($this->Resty->getInfo('http_code') == '200')
+            {
+                return MiteTracker::fromResponse($response);
+            }
+        }
+        catch (\Exception $e)
+        {
+            throw new MiteException('Entity deletion failed "tracker" ('.$e->getMessage().').');
+        }
+
+        return null;
+    }
 	
 	/**
 	 * Add entity
