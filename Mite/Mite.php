@@ -22,7 +22,7 @@ use Mite\MiteService;
  *
  * provides easy access to the mite API.
  *
- * @see http://mite.yo.lk/api/index.html
+ * @see http://mite.de/api/index.html
  * @author Stefan Pasch <stefan@codeschmiede.de>
  */
 class Mite
@@ -260,7 +260,7 @@ class Mite
 	 * Add a new customer
 	 *
 	 * @param array $data 	Associative array with customer data to be saved
-	 * 						Take a look at http://mite.yo.lk/api/kunden.html for parameters
+	 * 						Take a look at http://mite.de/api/kunden.html for parameters
 	 * @return MiteCustomer
 	 */
 	public function addCustomer(Array $data)
@@ -272,7 +272,7 @@ class Mite
 	 * Add a new project
 	 *
 	 * @param array $data 	Associative array with project data to be saved
-	 * 						Take a look at http://mite.yo.lk/api/projekte.html for parameters
+	 * 						Take a look at http://mite.de/api/projekte.html for parameters
 	 * @return MiteProject
 	 */
 	public function addProject(Array $data)
@@ -284,7 +284,7 @@ class Mite
 	 * Add a new service
 	 *
 	 * @param Array $data 	Associative array with service properties
-	 * 						http://mite.yo.lk/en/api/services.html
+	 * 						http://mite.de/en/api/services.html
 	 * @return MiteService
 	 */
 	public function addService(Array $data)
@@ -302,7 +302,7 @@ class Mite
         //PATCH /tracker/:id.json
 		try
 		{
-            
+
 			$response = $this->Resty->patch('/tracker/'.$id.'.json');
 
 			if ($this->Resty->getInfo('http_code') == '200') {
@@ -316,7 +316,7 @@ class Mite
 
 		return false;
 	}
-	
+
 	/**
 	 * Add entity
 	 *
@@ -430,7 +430,7 @@ class Mite
 	/**
 	 * Get all services by defined filters
 	 *
-	 * http://mite.yo.lk/en/api/services.html
+	 * http://mite.de/en/api/services.html
 	 *
 	 * @param string $name
 	 * @param int $limit
