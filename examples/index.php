@@ -31,7 +31,7 @@
 				<div class="twelve columns">
 					<div class="panel">
 						<label>
-							<input type="text" name="api_endpoint" placeholder="https://YOURDOMAIN.mite.yo.lk/" />
+							<input type="text" name="api_endpoint" placeholder="https://YOURDOMAIN.mite.de/" />
 						</label>
 						<label>
 							<input type="text" name="api_key" placeholder="API Key" />

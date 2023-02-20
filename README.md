@@ -1,6 +1,6 @@
 Mitey - PHP Wrapper for the mite API
 ====================================
-This script provides easy access to the [mite API](http://mite.yo.lk/api/index.html) via php objects. You'll be able to use code hinting in your IDE.
+This script provides easy access to the [mite API](http://mite.de/api/index.html) via php objects. You'll be able to use code hinting in your IDE.
 
 Requirements
 ------------
